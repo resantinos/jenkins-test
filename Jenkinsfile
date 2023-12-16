@@ -1,29 +1,33 @@
 pipeline {
     agent any
-    
+
     stages {
         stage('Build') {
             steps {
-                echo 'Building the project...'
-                // Add your build commands here
+                echo 'Building the website...'
+                // You can copy your HTML, CSS, and other necessary files to a build directory here
+                sh 'mkdir -p build'
+                sh 'cp index.html styles.css build/'
             }
         }
-        
+
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                // Add your test commands here
+                // Add any test commands if needed
             }
         }
-        
+
         stage('Deploy') {
             steps {
-                echo 'Deploying the project...'
-                // Add your deployment commands here
+                echo 'Deploying the website...'
+                // You can deploy the content to a server or hosting service here
+                // For simplicity, we'll just print a message
+                sh 'echo "Website deployed successfully!"'
             }
         }
     }
-    
+
     post {
         success {
             echo 'Pipeline succeeded!'
