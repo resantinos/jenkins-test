@@ -23,7 +23,11 @@ pipeline {
                 echo 'Deploying the website...'
                 // You can deploy the content to a server or hosting service here
                 // For simplicity, we'll just print a message
-                sh 'echo "Website deployed successfully!"'
+                sh 'echo "Deploying the website!"'
+                sh 'scp -r build/* root@fdc76d3997ce:/var/www/my-simple-website/'
+    }
+}
+
             }
         }
     }
