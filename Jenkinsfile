@@ -24,7 +24,7 @@ pipeline {
                 // You can deploy the content to a server or hosting service here
                 // For simplicity, we'll just print a message
                 sh 'echo "Deploying the website!"'
-                sh 'scp -r build/* root@fdc76d3997ce:/usr/share/nginx/html/'
+                sh 'scp -P 2222 -r build/* myuser@fdc76d3997ce:/usr/share/nginx/html/'
     }
 }
 
