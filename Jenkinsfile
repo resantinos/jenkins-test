@@ -24,7 +24,9 @@ pipeline {
                 // You can deploy the content to a server or hosting service here
                 // For simplicity, we'll just print a message
                 sh 'echo "Deploying the website!"'
-                sh 'scp -i "~/.ssh/jenkins_ssh" -P 22 -r build/* myuser@d86d0fad8a11:/usr/share/nginx/html/'
+                sh 'scp -i "~/.ssh/jenkins_ssh" -P 22 -r build/* myuser@4bd3b28ac32a:/usr/share/nginx/html/'
+                ssh -i "~/.ssh/jenkins_ssh" -p 22 myuser@4bd3b28ac32a "service nginx reload"
+                ssh -i "~/.ssh/jenkins_ssh" -p 22 myuser@4bd3b28ac32a "service nginx restart"
     }
 }
 
